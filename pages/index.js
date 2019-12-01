@@ -1,22 +1,21 @@
-import React from 'react'
-import Link from 'next/link'
-import fetch from 'isomorphic-unfetch'
+import React from "react";
+import Link from "next/link";
 
-function Index(props) {
+import protectedComponent from "../components/protectedComponent";
+
+function IndexPage(props) {
   return (
     <div>
-      <p>Next.js has {props.stars} ⭐️</p>
-      <Link href="/preact">
-        <a>How about preact?</a>
+      <h1>hello</h1>
+      <Link href="/notes" as="/notes">
+        <a>Notes</a>
+      </Link>
+      <br />
+      <Link href="/todos" as="/todos">
+        <a>Todos</a>
       </Link>
     </div>
-  )
+  );
 }
 
-Index.getInitialProps = async () => {
-  const res = await fetch('https://api.github.com/repos/zeit/next.js')
-  const json = await res.json() // better use it inside try .. catch
-  return { stars: json.stargazers_count }
-}
-
-export default Index
+export default protectedComponent(IndexPage);
