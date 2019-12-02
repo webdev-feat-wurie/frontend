@@ -42,7 +42,7 @@ LoginPage.getInitialProps = ctx => {
   const token = NextCookie(ctx)[SESSION_KEY];
   const auth = new AuthToken(token);
 
-  if (auth.isAuthenticated) {
+  if (auth.isAuthenticated()) {
     redirectTo("/", ctx.res);
     return {};
   }
