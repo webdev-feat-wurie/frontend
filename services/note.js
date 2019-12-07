@@ -1,7 +1,7 @@
 import fetch from "isomorphic-unfetch";
 
 const NOTES_SERVICE_URL =
-  "http://localhost:21702" || process.env.NOTES_SERVICE_URL;
+  process.env.NOTES_SERVICE_URL || "http://localhost:21702";
 
 const fetchNotes = async jwtToken => {
   const authHeader = `Bearer ${jwtToken}`;

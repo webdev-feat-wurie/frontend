@@ -1,7 +1,7 @@
 import fetch from "isomorphic-unfetch";
 
 const TODOS_SERVICE_URL =
-  "http://localhost:21701" || process.env.TODOS_SERVICE_URL;
+  process.env.TODOS_SERVICE_URL || "http://localhost:21701";
 
 const fetchTodos = async jwtToken => {
   const authHeader = `Bearer ${jwtToken}`;
